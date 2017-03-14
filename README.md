@@ -25,3 +25,29 @@ Before running the tests make sure you are serving the app via `ng serve`.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+# Step by step
+
+1. 通过 `ng new projectname` 创建初始化工程时会遇到 node-sass 的问题，解决方案如下：
+```
+工程目录下新建 .npmrc 文件并将下面的文本 copy 到文件中
+sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
+保存退出后运行 npm install 即可
+```
+ 
+2. 下载工程依赖的外部库 `bootstrap`, `jquery`, `font-awesome`, `animate.css`
+```bash
+npm install bootstrap jquery font-awesome animate.css --save
+```
+3. 在 `.angular-cli.json` 文件中引入第三方库文件
+```
+"styles": [
+  "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "../node_modules/font-awesome/css/font-awesome.min.css",
+  "styles.css"
+],
+"scripts": [
+  "../node_modules/jquery/dist/jquery.min.js",
+  "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+],
+```
